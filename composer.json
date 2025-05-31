@@ -29,5 +29,10 @@
         "allow-plugins": {
             "php-http/discovery": true
         }
+    },
+     "scripts": {
+        "style-fixer" : [
+            "vendor/bin/php-cs-fixer fix src --rules=@PSR12"
+        ]
     }
 }
