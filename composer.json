@@ -3,6 +3,7 @@
     "description": "Fonepay Omnipay Package for PHP applications",
     "type": "library",
     "require": {
+        "bacon/bacon-qr-code": "^3.0",
         "omnipay/common": "^3.4",
         "symfony/http-client": "^7.2",
         "http-interop/http-factory-guzzle": "^1.2"
@@ -14,7 +15,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Pralhadstha\\OmnipayFonepay\\": "src/"
+            "Omnipay\\Fonepay\\": "src/"
         }
     },
     "authors": [

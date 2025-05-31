@@ -3,9 +3,14 @@
 namespace Omnipay\Fonepay;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\Fonepay\Message\QrPurchaseRequest;
+use Omnipay\Fonepay\Message\VerifyQrPaymentRequest;
 
 class FonepayQrGateway extends AbstractGateway
 {
+    use HasCredentialsTrait;
+    use HasSignatureTrait;
+
     public function getName()
     {
         return 'Fonepay QR';
@@ -14,30 +19,11 @@ class FonepayQrGateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return [
+            'merchantCode' => '',
             'username' => '',
             'password' => '',
             'testMode' => false,
         ];
-    }
-
-    public function getUsername()
-    {
-        return $this->getParameter('username');
-    }
-
-    public function setUsername($value)
-    {
-        return $this->setParameter('username', $value);
-    }
-
-    public function getPassword()
-    {
-        return $this->getParameter('password');
-    }
-
-    public function setPassword($value)
-    {
-        return $this->setParameter('password', $value);
     }
 
     public function getTestMode()
@@ -48,5 +34,15 @@ class FonepayQrGateway extends AbstractGateway
     public function setTestMode($value)
     {
         return $this->setParameter('testMode', $value);
+    }
+
+    public function purchase(array $parameters = []): QrPurchaseRequest
+    {
+        return $this->createRequest('\Omnipay\Fonepay\Message\QrPurchaseRequest', $parameters);
+    }
+
+    public function completePurchase(array $parameters = []): VerifyQrPaymentRequest
+    {
+        return $this->createRequest('\Omnipay\Fonepay\Message\VerifyQrPaymentRequest', $parameters);
     }
 }
