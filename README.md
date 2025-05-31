@@ -5,7 +5,7 @@
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP.
 
-This package implements Fonepay QR support for Omnipay.
+Currently this package only implements Fonepay QR support for Omnipay. Fonepay functionality will be added soon.
 
 ## Installation
 
